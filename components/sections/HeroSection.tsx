@@ -186,11 +186,11 @@ export default function HeroSection({ scrollToSection, parallaxY }: HeroSectionP
                 className="relative z-20"
               >
                 <Image
-                  src="/hana1.jpg?height=300&width=300"
+                  src="/hana3.jpg?height=300&width=300"
                   alt="Dr. Hana Degu - Professional headshot"
                   width={300}
                   height={300}
-                  className="relative rounded-full shadow-xl sm:shadow-2xl border-2 sm:border-4 border-white w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-cover"
+                  className="relative rounded-full shadow-xl sm:shadow-2xl border-2 sm:border-4 border-white w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 xl:w-96 xl:h-96 object-cover"
                   priority
                 />
               </motion.div>
