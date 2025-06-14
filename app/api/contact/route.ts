@@ -49,19 +49,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Message must be between 10 and 1000 characters" }, { status: 400 })
     }
 
-    // Create transporter (using Gmail as example - you can use any SMTP service)
+    // Create transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASS, // Your app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     })
 
-    // Email to Dr. Hana
+    // Email to Dr. Hana - This appears to come from the user's email
     const mailToDoctor = {
-      from: process.env.EMAIL_USER,
-      to: "hana.degu@email.com", // Dr. Hana's email
+      from: `"${name}" <${process.env.EMAIL_USER}>`, // Your authenticated email
+      replyTo: email, // User's email for replies
+      to: "deguhana78@gmail.com", // Dr. Hana's email
       subject: `New Contact Form Message from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -69,29 +70,37 @@ export async function POST(request: NextRequest) {
             <h1 style="color: white; margin: 0;">New Contact Form Message</h1>
           </div>
           <div style="padding: 20px; background: #f8fafc;">
-            <h2 style="color: #0d9488;">Contact Details</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+            <div style="background: #e0f2fe; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+              <h2 style="color: #0d9488; margin: 0 0 10px 0;">From: ${name}</h2>
+              <p style="margin: 0; color: #0369a1;">
+                <strong>Email:</strong> <a href="mailto:${email}" style="color: #0d9488;">${email}</a>
+              </p>
+              <p style="margin: 5px 0 0 0; color: #0369a1;">
+                <strong>Date:</strong> ${new Date().toLocaleString()}
+              </p>
+            </div>
             
             <h2 style="color: #0d9488;">Message</h2>
-            <div style="background: white; padding: 15px; border-left: 4px solid #0d9488; margin: 10px 0;">
+            <div style="background: white; padding: 20px; border-left: 4px solid #0d9488; margin: 10px 0; border-radius: 4px;">
               ${message.replace(/\n/g, "<br>")}
             </div>
             
-            <div style="margin-top: 20px; padding: 15px; background: #e0f2fe; border-radius: 5px;">
-              <p style="margin: 0; color: #0369a1;">
-                <strong>Reply to:</strong> <a href="mailto:${email}" style="color: #0d9488;">${email}</a>
+            <div style="margin-top: 20px; padding: 15px; background: #dcfce7; border-radius: 5px; border-left: 4px solid #16a34a;">
+              <p style="margin: 0; color: #15803d;">
+                <strong>💡 Tip:</strong> Click "Reply" to respond directly to ${name} at ${email}
               </p>
             </div>
+          </div>
+          <div style="background: #1f2937; color: white; padding: 15px; text-align: center; font-size: 12px;">
+            <p style="margin: 0;">This message was sent through your portfolio website contact form</p>
           </div>
         </div>
       `,
     }
 
-    // Auto-reply to sender
+    // Auto-reply to sender - This comes from your email to theirs
     const autoReply = {
-      from: process.env.EMAIL_USER,
+      from: `"Dr. Hana Degu" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Thank you for contacting Dr. Hana Degu",
       html: `
@@ -101,22 +110,25 @@ export async function POST(request: NextRequest) {
             <p style="color: white; margin: 5px 0 0 0;">General Practitioner</p>
           </div>
           <div style="padding: 20px; background: #f8fafc;">
-            <h2 style="color: #0d9488;">Thank you for your message!</h2>
-            <p>Dear ${name},</p>
-            <p>Thank you for reaching out to me. I have received your message and will get back to you as soon as possible, typically within 24-48 hours.</p>
+            <h2 style="color: #0d9488;">Thank you for your message, ${name}!</h2>
+            <p>I have received your message and will get back to you as soon as possible, typically within 24-48 hours.</p>
             
-            <div style="background: white; padding: 15px; border-left: 4px solid #0d9488; margin: 20px 0;">
+            <div style="background: white; padding: 15px; border-left: 4px solid #0d9488; margin: 20px 0; border-radius: 4px;">
               <h3 style="margin-top: 0; color: #0d9488;">Your Message:</h3>
-              <p style="margin-bottom: 0;">${message.replace(/\n/g, "<br>")}</p>
+              <p style="margin-bottom: 0; font-style: italic;">"${message.replace(/\n/g, "<br>")}"</p>
             </div>
             
-            <p>If you have any urgent medical concerns, please contact your local emergency services or visit the nearest hospital.</p>
+            <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b; margin: 20px 0;">
+              <p style="margin: 0; color: #92400e;">
+                <strong>⚠️ Important:</strong> If you have any urgent medical concerns, please contact your local emergency services or visit the nearest hospital immediately.
+              </p>
+            </div>
             
-            <div style="margin-top: 30px; padding: 20px; background: #e0f2fe; border-radius: 5px; text-align: center;">
+            <div style="margin-top: 30px; padding: 20px; background: #e0f2fe; border-radius: 8px; text-align: center;">
               <h3 style="color: #0369a1; margin-top: 0;">Connect with me</h3>
               <p style="margin: 10px 0;">
-                <a href="mailto:hana.degu@email.com" style="color: #0d9488; text-decoration: none;">📧 hana.degu@email.com</a><br>
-                <a href="https://linkedin.com/in/hana-degu" style="color: #0d9488; text-decoration: none;">💼 LinkedIn Profile</a>
+                <a href="mailto:deguhana78@gmail.com" style="color: #0d9488; text-decoration: none; margin-right: 20px;">📧 Email</a>
+                <a href="https://linkedin.com/in/hana-degu" style="color: #0d9488; text-decoration: none;">💼 LinkedIn</a>
               </p>
             </div>
             
@@ -129,11 +141,11 @@ export async function POST(request: NextRequest) {
       `,
     }
 
-    // Send emails
+    // Send both emails
     await Promise.all([transporter.sendMail(mailToDoctor), transporter.sendMail(autoReply)])
 
-    // Log the contact for analytics (in a real app, you might save to database)
-    console.log(`New contact form submission from ${name} (${email}) at ${new Date().toISOString()}`)
+    // Log the contact for analytics
+    console.log(`✅ Contact form submission: ${name} (${email}) - ${new Date().toISOString()}`)
 
     return NextResponse.json(
       {
@@ -143,7 +155,7 @@ export async function POST(request: NextRequest) {
       { status: 200 },
     )
   } catch (error) {
-    console.error("Contact form error:", error)
+    console.error("❌ Contact form error:", error)
 
     return NextResponse.json(
       {

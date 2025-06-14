@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     const emailToDoctor = {
       from: `"${name} (via Portfolio)" <${process.env.EMAIL_USER}>`,
       replyTo: `"${name}" <${email}>`, // When Dr. Hana replies, it goes to user
-      to: "hopefull2234@email.com",
+      to: "deguhana78@gmail.com",
       subject: `Portfolio Contact: ${name} wants to connect`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
                  style="display: inline-block; background: #0d9488; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500; margin-right: 10px;">
                 📧 Reply to ${name}
               </a>
-              <a href="tel:+251912345678" 
+              <a href="tel:+251-912760855" 
                  style="display: inline-block; background: #6b7280; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500;">
                 📞 Call Back
               </a>
@@ -127,7 +127,7 @@ export async function POST(request: NextRequest) {
               <div style="background: #e0f2fe; padding: 20px; border-radius: 8px; text-align: center; margin-top: 25px;">
                 <h3 style="color: #0369a1; margin: 0 0 15px 0;">Stay Connected</h3>
                 <p style="margin: 10px 0;">
-                  <a href="mailto:hana.degu@email.com" style="color: #0d9488; text-decoration: none; margin: 0 15px;">📧 Email</a>
+                  <a href="mailto:deguhana78@gmail.com" style="color: #0d9488; text-decoration: none; margin: 0 15px;">📧 Email</a>
                   <a href="https://linkedin.com/in/hana-degu" style="color: #0d9488; text-decoration: none; margin: 0 15px;">💼 LinkedIn</a>
                 </p>
               </div>

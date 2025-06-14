@@ -84,7 +84,7 @@ export default function ContactSection() {
     setSubmitStatus("idle")
 
     try {
-      const response = await fetch("/api/contact-advanced", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -149,8 +149,8 @@ export default function ContactSection() {
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6 mr-4 flex-shrink-0" />
-                <a href="mailto:hana.degu@email.com" className="text-sm sm:text-base">
-                  hana.degu@email.com
+                <a href="mailto:deguhana78@gmail.com" className="text-sm sm:text-base">
+                  deguhana78@gmail.com
                 </a>
               </motion.div>
               <motion.div
@@ -158,8 +158,8 @@ export default function ContactSection() {
                 whileHover={{ x: 5 }}
               >
                 <Phone className="w-5 h-5 sm:w-6 sm:h-6 mr-4 flex-shrink-0" />
-                <a href="tel:+251912345678" className="text-sm sm:text-base">
-                  +251 91 234 5678
+                <a href="tel:+251912760855" className="text-sm sm:text-base">
+                  +251-912760855
                 </a>
               </motion.div>
               <motion.div className="flex items-center" whileHover={{ x: 5 }}>
@@ -196,7 +196,7 @@ export default function ContactSection() {
                   variant="outline"
                   size="sm"
                   className="border-white/30 text-white hover:bg-white/10"
-                  onClick={() => handleSocialClick("email", "mailto:hana.degu@email.com")}
+                  onClick={() => handleSocialClick("email", "mailto:deguhana78@gmail.com")}
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Email
