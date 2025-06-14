@@ -55,7 +55,7 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-teal-100">
-        <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
+  <div className="max-w-7xl mx-auto w-full overflow-x-hidden px-3 sm:px-4 lg:px-6 py-3 sm:py-4">
           <div className="flex justify-between items-center w-full">
             <motion.div
               initial={{ opacity: 0, x: -20 }}

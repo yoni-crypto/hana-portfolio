@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Heart, Users, Stethoscope, Target } from "lucide-react"
+import { Heart, Users, Stethoscope, Target, Camera, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import SectionHeader from "@/components/ui/SectionHeader"
 
@@ -10,6 +10,8 @@ const aboutFeatures = [
   { icon: Users, label: "Team Collaboration", color: "text-blue-500", bgColor: "bg-blue-50" },
   { icon: Stethoscope, label: "Clinical Excellence", color: "text-teal-500", bgColor: "bg-teal-50" },
   { icon: Target, label: "Healthcare Innovation", color: "text-purple-500", bgColor: "bg-purple-50" },
+  { icon: Camera, label: "Photography", color: "text-amber-500", bgColor: "bg-amber-50" },
+  { icon: MapPin, label: "Travel", color: "text-green-500", bgColor: "bg-green-50" },
 ]
 
 export default function AboutSection() {
@@ -30,13 +32,19 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <Card className="p-6 sm:p-8 shadow-lg border-0 bg-gradient-to-br from-teal-50 to-blue-50">
-              <CardContent className="p-0">
+              <CardContent className="p-0 space-y-4">
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                   I am a passionate, disciplined, and skilled General Practitioner currently working at
                   <span className="font-semibold text-teal-700"> ALERT Comprehensive Specialized Hospital</span>, where
                   I provide holistic patient care by collaborating with nurses, medical interns, pharmacists, and other
                   healthcare professionals. I actively engage with senior physicians and administrators to ensure
                   optimal treatment and healthcare outcomes.
+                </p>
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                  Beyond my medical practice, I have a deep appreciation for history and culture. During my time in Gondar, 
+                  I explored various religious and historical sites, including the magnificent castle of King Fasiledes and 
+                  the serene Lake Tana monasteries. This experience has fostered my love for travel and photography, which 
+                  I pursue in a modern way whenever I get the chance.
                 </p>
               </CardContent>
             </Card>

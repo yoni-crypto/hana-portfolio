@@ -128,7 +128,7 @@ export async function POST(request: NextRequest) {
                 <h3 style="color: #0369a1; margin: 0 0 15px 0;">Stay Connected</h3>
                 <p style="margin: 10px 0;">
                   <a href="mailto:deguhana78@gmail.com" style="color: #0d9488; text-decoration: none; margin: 0 15px;">📧 Email</a>
-                  <a href="https://linkedin.com/in/hana-degu" style="color: #0d9488; text-decoration: none; margin: 0 15px;">💼 LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/hana-degu-b13ba02a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" style="color: #0d9488; text-decoration: none; margin: 0 15px;">💼 LinkedIn</a>
                 </p>
               </div>
             </div>

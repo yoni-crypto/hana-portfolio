@@ -172,7 +172,7 @@ export default function ContactSection() {
               >
                 <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 mr-4 flex-shrink-0" />
                 <button
-                  onClick={() => handleSocialClick("linkedin", "https://linkedin.com/in/hana-degu")}
+                  onClick={() => handleSocialClick("linkedin", "https://www.linkedin.com/in/hana-degu-b13ba02a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app")}
                   className="text-sm sm:text-base text-left"
                 >
                   linkedin.com/in/hana-degu
@@ -186,8 +186,8 @@ export default function ContactSection() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-white/30 text-white hover:bg-white/10"
-                  onClick={() => handleSocialClick("linkedin", "https://linkedin.com/in/hana-degu")}
+                  className="border-white/30  text-white :bg-white/10"
+                  onClick={() => handleSocialClick("linkedin", "https://www.linkedin.com/in/hana-degu-b13ba02a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app")}
                 >
                   <Linkedin className="w-4 h-4 mr-2" />
                   LinkedIn
@@ -195,7 +195,7 @@ export default function ContactSection() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-white/30 text-white hover:bg-white/10"
+                  className="border-white/30 text-white bg-white/10"
                   onClick={() => handleSocialClick("email", "mailto:deguhana78@gmail.com")}
                 >
                   <Mail className="w-4 h-4 mr-2" />
