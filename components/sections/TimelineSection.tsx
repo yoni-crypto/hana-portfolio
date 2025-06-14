@@ -40,6 +40,15 @@ const timelineData = [
     side: "right",
     color: "bg-green-500",
   },
+  {
+    year: "2024",
+    title: "Health Education & Chronic Disease Screening Volunteer",
+    institution: "Menilik II Hospital",
+    description: "Provided health education and volunteered in screening for chronic diseases.",
+    icon: Heart,
+    side: "left",
+    color: "bg-purple-500",
+  },
 ]
 
 export default function TimelineSection() {

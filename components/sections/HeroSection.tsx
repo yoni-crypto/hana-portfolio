@@ -152,14 +152,25 @@ export default function HeroSection({ scrollToSection, parallaxY }: HeroSectionP
               </Button>
 
               <Button
-                variant="outline"
-                onClick={handleViewPortfolio}
-                className="border-teal-600 text-teal-600 hover:bg-teal-50 px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base lg:text-lg group shadow-md hover:shadow-lg transition-all"
-                size="lg"
-              >
-                <FileText className="w-4 h-4 lg:w-5 lg:h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Learn More
-              </Button>
+  variant="outline"
+  onClick={handleDownloadCV}
+  className="border-teal-600 text-teal-600 hover:bg-teal-50 px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base lg:text-lg group shadow-md hover:shadow-lg transition-all sm:hidden"
+  size="lg"
+>
+  <FileText className="w-4 h-4 lg:w-5 lg:h-5 mr-2 group-hover:scale-110 transition-transform" />
+  Download CV
+</Button>
+
+{/* Learn More button for tablet and up */}
+<Button
+  variant="outline"
+  onClick={handleViewPortfolio}
+  className="border-teal-600 text-teal-600 hover:bg-teal-50 px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base lg:text-lg group shadow-md hover:shadow-lg transition-all hidden sm:flex"
+  size="lg"
+>
+  <FileText className="w-4 h-4 lg:w-5 lg:h-5 mr-2 group-hover:scale-110 transition-transform" />
+  Learn More
+</Button>
             </motion.div>
           </motion.div>
 
