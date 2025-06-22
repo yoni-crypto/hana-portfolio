@@ -106,7 +106,7 @@ export default function HeroSection({ scrollToSection, parallaxY }: HeroSectionP
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
-              Passionate General Practitioner driving change through care, innovation, and technology.
+              Passionate General Practitioner driving change through patient care and health care innovation.
             </motion.p>
 
             {/* Key Highlights */}
